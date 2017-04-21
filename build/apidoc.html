@@ -1,0 +1,875 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/jscs-dev/jscs-jsdoc"
+
+    >jscs-jsdoc (v2.0.0)</a>
+</h1>
+<h4>JSCS jsdoc plugin</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jscs-jsdoc">module jscs-jsdoc</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.jscs-jsdoc">
+            function <span class="apidocSignatureSpan"></span>jscs-jsdoc
+            <span class="apidocSignatureSpan">(configuration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.validate_jsdoc">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.</span>validate_jsdoc
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jscs-jsdoc.</span>esprima_helpers</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jscs-jsdoc.</span>jsdoc</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jscs-jsdoc.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jscs-jsdoc.</span>validate_jsdoc.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jscs-jsdoc.esprima_helpers">module jscs-jsdoc.esprima_helpers</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.esprima_helpers.closestScopeNode">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.esprima_helpers.</span>closestScopeNode
+            <span class="apidocSignatureSpan">(n)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jscs-jsdoc.jsdoc">module jscs-jsdoc.jsdoc</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.jsdoc.createDocCommentByCommentNode">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>createDocCommentByCommentNode
+            <span class="apidocSignatureSpan">(commentNode)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.jsdoc.doc">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>doc
+            <span class="apidocSignatureSpan">(value, node, originalValue, column)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.jsdoc.location">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>location
+            <span class="apidocSignatureSpan">(offset, rel)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.jsdoc.tag">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>tag
+            <span class="apidocSignatureSpan">(tag, loc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.jsdoc.type">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>type
+            <span class="apidocSignatureSpan">(type, loc)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jscs-jsdoc.utils">module jscs-jsdoc.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.utils.getLineCountBetween">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.utils.</span>getLineCountBetween
+            <span class="apidocSignatureSpan">(tokenBefore, tokenAfter)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.utils.getLineInfo">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.utils.</span>getLineInfo
+            <span class="apidocSignatureSpan">(code)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.utils.getNodeColumn">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.utils.</span>getNodeColumn
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jscs-jsdoc.validate_jsdoc">module jscs-jsdoc.validate_jsdoc</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.validate_jsdoc.validate_jsdoc">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.</span>validate_jsdoc
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jscs-jsdoc.validate_jsdoc.prototype">module jscs-jsdoc.validate_jsdoc.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.validate_jsdoc.prototype._getReturnStatementsForNode">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.validate_jsdoc.prototype.</span>_getReturnStatementsForNode
+            <span class="apidocSignatureSpan">(node)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.check">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.validate_jsdoc.prototype.</span>check
+            <span class="apidocSignatureSpan">(file, errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.configure">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.validate_jsdoc.prototype.</span>configure
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.getOptionName">
+            function <span class="apidocSignatureSpan">jscs-jsdoc.validate_jsdoc.prototype.</span>getOptionName
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jscs-jsdoc" id="apidoc.module.jscs-jsdoc">module jscs-jsdoc</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.jscs-jsdoc" id="apidoc.element.jscs-jsdoc.jscs-jsdoc">
+        function <span class="apidocSignatureSpan"></span>jscs-jsdoc
+        <span class="apidocSignatureSpan">(configuration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">jscs-jsdoc = function (configuration) {
+    delete configuration._rules.jsDoc;
+    configuration.registerRule(require(&#x27;./rules/validate-jsdoc&#x27;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.validate_jsdoc" id="apidoc.element.jscs-jsdoc.validate_jsdoc">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.</span>validate_jsdoc
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate_jsdoc = function () {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jscs-jsdoc.esprima_helpers" id="apidoc.module.jscs-jsdoc.esprima_helpers">module jscs-jsdoc.esprima_helpers</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.esprima_helpers.closestScopeNode" id="apidoc.element.jscs-jsdoc.esprima_helpers.closestScopeNode">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.esprima_helpers.</span>closestScopeNode
+        <span class="apidocSignatureSpan">(n)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function closestScopeNode(n) {
+    while (n &#x26;&#x26; scopeNodeTypes.indexOf(n.type) === -1) {
+        n = n.parentElement;
+    }
+    return n;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+if (node.jsdoc.returnStatements) {
+    return node.jsdoc.returnStatements;
+}
+
+var statements = [];
+this._iterate(function(n) {
+    if (n &#x26;&#x26; n.type === &#x27;ReturnStatement&#x27; &#x26;&#x26; n.argument) {
+        if (node === esprimaHelpers.<span class="apidocCodeKeywordSpan">closestScopeNode</span>(n)) {
+            statements.push(n.argument);
+        }
+    }
+}, node);
+
+node.jsdoc.returnStatements = statements;
+return statements;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jscs-jsdoc.jsdoc" id="apidoc.module.jscs-jsdoc.jsdoc">module jscs-jsdoc.jsdoc</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.jsdoc.createDocCommentByCommentNode" id="apidoc.element.jscs-jsdoc.jsdoc.createDocCommentByCommentNode">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>createDocCommentByCommentNode
+        <span class="apidocSignatureSpan">(commentNode)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createDocCommentByCommentNode = function (commentNode) {
+    var column = getNodeColumn(commentNode);
+    var lines = [(new Array(column + 1)).join(&#x27; &#x27;), &#x27;/*&#x27;, commentNode.value, &#x27;*/&#x27;]
+        .join(&#x27;&#x27;).split(&#x27;\n&#x27;).map(function(v) {
+            return v.substr(column);
+        });
+    var value = lines.join(&#x27;\n&#x27;);
+    return new DocComment(value, commentNode, commentNode.getSourceCode(), column);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return this._jsdoc;
+    }
+
+    var node = functionNodeTypes.indexOf(this.type) !== -1 ?
+        findFirstNodeInLine(this) : this;
+    var res = findDocCommentBeforeNode(node, this);
+
+    this._jsdoc = res ? jsdoc.<span class="apidocCodeKeywordSpan">createDocCommentByCommentNode</span>(res) : null;
+
+    return this._jsdoc;
+}
+
+/**
+ * Finds the first node on the same line as passed node
+ *
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.jsdoc.doc" id="apidoc.element.jscs-jsdoc.jsdoc.doc">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>doc
+        <span class="apidocSignatureSpan">(value, node, originalValue, column)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DocComment(value, node, originalValue, column) {
+    originalValue = originalValue || value;
+    column = column || 0;
+
+    this.node = node;
+
+    // parse comments
+    var _parsed = _parseComment(value) || {};
+
+    // fill up fields
+    this.value = value;
+    this.lines = value.split(&#x27;\n&#x27;);
+    this.valid = _parsed.hasOwnProperty(&#x27;line&#x27;);
+
+    // doc parsed data
+    var _d = _parsed.source;
+    var _dog = _d &#x26;&#x26; _d.indexOf(&#x27;\n@&#x27;);
+    this.description = !_d || _d[0] === &#x27;@&#x27; ?
+        null
+        : (_dog === -1 ? _d : _d.substr(0, _dog));
+
+    var lineInfo = getLineInfo(originalValue);
+    this.tags = (_parsed.tags || []).map(function(tag) {
+        return new DocTag(
+            tag,
+            new DocLocation(lineInfo[tag.line].offset + 3 + column)
+        );
+    });
+
+    // calculate abstract flag
+    this.abstract = this.tags.some(function(v) {
+        return v.id === &#x27;abstract&#x27; || v.id === &#x27;virtual&#x27;;
+    });
+
+<span class="apidocCodeCommentSpan">    /**
+     * @param {function(this: DocComment, DocTag): DocComment} fn
+     * @returns {DocComment}
+     */
+</span>    this.iterate = function forEachTag(fn) {
+        this.tags.forEach(fn, this);
+        return this;
+    };
+
+    /**
+     * @param {string|Array.&#x3c;string&#x3e;} types
+     * @param {function(this: DocComment, DocTag): DocComment} fn
+     * @returns {DocComment}
+     */
+    this.iterateByType = function iterateByTypes(types, fn) {
+        var k = 0;
+        types = Array.isArray(types) ? types : [types];
+        this.tags.forEach(function(tag) {
+            if (types.indexOf(tag.id) === -1) {
+                return;
+            }
+            fn.call(this, tag, k++);
+        }, this);
+        return this;
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.jsdoc.location" id="apidoc.element.jscs-jsdoc.jsdoc.location">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>location
+        <span class="apidocSignatureSpan">(offset, rel)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DocLocation(offset, rel) {
+    assert(Number.isFinite(offset) &#x26;&#x26; offset &#x3e;= 0, &#x27;offset should be greater than zero&#x27;);
+    rel = rel || {};
+    this.offset = Number(offset) + Number(rel.offset || 0);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.jsdoc.tag" id="apidoc.element.jscs-jsdoc.jsdoc.tag">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>tag
+        <span class="apidocSignatureSpan">(tag, loc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DocTag(tag, loc) {
+    this.id = tag.tag;
+    this.line = tag.line;
+    this.value = tag.value;
+    this.name = undefined;
+    this.type = undefined;
+
+    this.description = tag.description;
+    this.optional = tag.optional;
+    this.default = tag.default;
+
+    this.loc = loc;
+
+    if (tag.name) {
+        this.name = {
+            loc: this.loc.shift(tag.value.indexOf(tag.name)),
+            value: tag.name
+        };
+    }
+
+    if (tag.type) {
+        this.type = new DocType(tag.type, this.loc.shift(tag.value.indexOf(tag.type)));
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.jsdoc.type" id="apidoc.element.jscs-jsdoc.jsdoc.type">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.jsdoc.</span>type
+        <span class="apidocSignatureSpan">(type, loc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function DocType(type, loc) {
+    assert(type, &#x27;type can\&#x27;t be empty&#x27;);
+    assert(loc, &#x27;location should be passed&#x27;);
+
+    this.value = type;
+    this.loc = loc;
+
+    var parsed = _parseDocType(type);
+    var data = parsed.valid ? _simplifyType(parsed) : [];
+
+    this.optional = parsed.optional;
+    this.variable = parsed.variable;
+    this.valid = parsed.valid;
+
+    if (parsed.valid &#x26;&#x26; parsed.variable) {
+        this.loc.offset = this.loc.offset + 3; // &#x27; * &#x27;.length
+    }
+
+<span class="apidocCodeCommentSpan">    /**
+     * Match type
+     *
+     * @param {EsprimaNode} node
+     * @returns {boolean}
+     */
+</span>    this.match = function(node) {
+        return jsDocMatchType(data, node);
+    };
+
+    /**
+     * @param {function(TypeBuilder)} cb Calling for each node
+     * @returns {Array}
+     */
+    this.iterate = function(cb) {
+        if (!parsed.valid) {
+            return [];
+        }
+        return _iterateDocTypes(parsed, cb);
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jscs-jsdoc.utils" id="apidoc.module.jscs-jsdoc.utils">module jscs-jsdoc.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.utils.getLineCountBetween" id="apidoc.element.jscs-jsdoc.utils.getLineCountBetween">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.utils.</span>getLineCountBetween
+        <span class="apidocSignatureSpan">(tokenBefore, tokenAfter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getLineCountBetween = function (tokenBefore, tokenAfter) {
+    if (tokenBefore === tokenAfter) {
+        return 0;
+    }
+
+    var currentToken = tokenBefore.getNextToken();
+    var lineCount = 0;
+    while (currentToken) {
+        if (currentToken === tokenAfter) {
+            break;
+        }
+
+        lineCount += currentToken.getNewlineCount();
+        currentToken = currentToken.getNextToken();
+    }
+    return lineCount;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.utils.getLineInfo" id="apidoc.element.jscs-jsdoc.utils.getLineInfo">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.utils.</span>getLineInfo
+        <span class="apidocSignatureSpan">(code)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getLineInfo = function (code) {
+    var lines = [];
+    lineBreakRegexGlobal.lastIndex = 0;
+    var lastOffset = 0;
+    var match;
+    while ((match = lineBreakRegexGlobal.exec(code)) !== null) {
+        lines.push({
+            offset: lastOffset,
+            text: code.substring(lastOffset, match.index),
+            lineBreak: match[0]
+        });
+        lastOffset = match.index + match[0].length;
+    }
+    lines.push({offset: lastOffset, text: code.substr(lastOffset), lineBreak: null});
+    return lines;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.utils.getNodeColumn" id="apidoc.element.jscs-jsdoc.utils.getNodeColumn">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.utils.</span>getNodeColumn
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getNodeColumn = function (node) {
+    var currentToken = node.getFirstToken().getPreviousToken();
+    var indentationLevel = 0;
+    while (currentToken) {
+        if (currentToken.getNewlineCount() &#x3e; 0) {
+            var sourceCodeLines = currentToken.getSourceCodeLines();
+            indentationLevel += sourceCodeLines[sourceCodeLines.length - 1].length;
+            break;
+        }
+
+        indentationLevel += currentToken.getSourceCodeLength();
+
+        currentToken = currentToken.getPreviousToken();
+    }
+    return indentationLevel;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jscs-jsdoc.validate_jsdoc" id="apidoc.module.jscs-jsdoc.validate_jsdoc">module jscs-jsdoc.validate_jsdoc</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.validate_jsdoc.validate_jsdoc" id="apidoc.element.jscs-jsdoc.validate_jsdoc.validate_jsdoc">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.</span>validate_jsdoc
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">validate_jsdoc = function () {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jscs-jsdoc.validate_jsdoc.prototype" id="apidoc.module.jscs-jsdoc.validate_jsdoc.prototype">module jscs-jsdoc.validate_jsdoc.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.validate_jsdoc.prototype._getReturnStatementsForNode" id="apidoc.element.jscs-jsdoc.validate_jsdoc.prototype._getReturnStatementsForNode">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.validate_jsdoc.prototype.</span>_getReturnStatementsForNode
+        <span class="apidocSignatureSpan">(node)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_getReturnStatementsForNode = function (node) {
+    if (node.jsdoc.returnStatements) {
+        return node.jsdoc.returnStatements;
+    }
+
+    var statements = [];
+    this._iterate(function(n) {
+        if (n &#x26;&#x26; n.type === &#x27;ReturnStatement&#x27; &#x26;&#x26; n.argument) {
+            if (node === esprimaHelpers.closestScopeNode(n)) {
+                statements.push(n.argument);
+            }
+        }
+    }, node);
+
+    node.jsdoc.returnStatements = statements;
+    return statements;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.check" id="apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.check">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.validate_jsdoc.prototype.</span>check
+        <span class="apidocSignatureSpan">(file, errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">check = function (file, errors) {
+    patchNodesInFile(file);
+    this._iterate = file.iterate;
+
+    var _this = this;
+    var scopes = {
+        &#x27;function&#x27;: functionNodeTypes,
+    };
+
+    // classic checker
+    if (_this._rulesForNodes.file) {
+        // call file checkers
+        var validators = _this._rulesForNodes.file;
+        if (validators) {
+            validators.forEach(function(v) {
+                v.call(_this, file, errors);
+            });
+        }
+    }
+
+    // iterate over scopes
+    Object.keys(scopes).forEach(function(scope) {
+
+        // skip unused
+        if (!_this._rulesForNodes[scope] &#x26;&#x26; !_this._rulesForTags[scope]) {
+            return;
+        }
+
+        // traverse ast tree and search scope node types
+        file.iterateNodesByType(scopes[scope], function(node) {
+            // init
+            var validators;
+
+            // call node checkers
+            validators = _this._rulesForNodes[scope];
+            if (validators) {
+                validators.forEach(function(v) {
+                    v.call(_this, node, addError);
+                });
+            }
+
+            validators = _this._rulesForTags[scope];
+            if (!validators || !node.jsdoc || !node.jsdoc.valid) {
+                return;
+            }
+
+            // call rule checkers
+            node.jsdoc.iterate(function(tag) {
+                if (!validators[&#x27;@&#x27; + tag.id]) {
+                    return;
+                }
+                // call tag validator
+                validators[&#x27;@&#x27; + tag.id].forEach(function(v) {
+                    v.call(_this, node, tag, fixErrLocation(addError, tag));
+                });
+            });
+
+<span class="apidocCodeCommentSpan">            /**
+             * Send error to jscs
+             *
+             * @param {string} text
+             * @param {number|DocLocation} offset
+             */
+</span>            function addError(text, offset) {
+                if (typeof offset === &#x27;object&#x27;) {
+                    if (offset.type) {
+                        errors.add(text, offset, 0);
+                        return;
+                    } else {
+                        offset = offset.offset;
+                    }
+                }
+                errors.add(text, node.jsdoc.node, offset);
+            }
+
+            /**
+             * Generates function with location fixing logic to send error to jscs
+             *
+             * @param {function(string, number|Object)} err
+             * @param {DocTag} tag
+             * @returns {function(string, number|Object)}
+             */
+            function fixErrLocation(err, tag) {
+                return function(text, offset) {
+                    err(text, offset || tag.loc.offset);
+                };
+            }
+        });
+
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.configure" id="apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.configure">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.validate_jsdoc.prototype.</span>configure
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">configure = function (options) {
+    assert(typeof options === &#x27;object&#x27;, &#x27;jsDoc option requires object value&#x27;);
+
+    // rules structured by scopes-tags for jsdoc-tags
+    var rulesForTags = this._rulesForTags = {};
+    // rules structured by scopes for nodes
+    var rulesForNodes = this._rulesForNodes = {};
+
+    this._options = options;
+    this._optionsList = Object.keys(options);
+
+    // load validators
+    this._validators = validators.load(this._optionsList);
+    assert(this._validators.length, &#x27;jsDoc plugin was not configured properly&#x27;);
+
+    // registering validators
+    this._validators.forEach(function(v) {
+        // check options
+        if (v.options) {
+            validators.checkOptions(v, options);
+        }
+        // configure
+        if (v.configure) {
+            v.configure.call(this, options);
+        }
+        // index rules by tags and scopes
+        (v.scopes || [&#x27;&#x27;]).forEach(function(scope) {
+            if (!v.tags) {
+                assert(v.length === 2, &#x27;jsDoc rules: Wrong arity in &#x27; + v._name + &#x27; validator&#x27;);
+                rulesForNodes[scope] = rulesForNodes[scope] || [];
+                rulesForNodes[scope].push(v);
+                return;
+            }
+            assert(v.length === 3, &#x27;jsDoc rules: Wrong arity in &#x27; + v._name + &#x27; validator&#x27;);
+            rulesForTags[scope] = rulesForTags[scope] || {};
+            v.tags.forEach(function(tag) {
+                var dtag = &#x27;@&#x27; + tag;
+                rulesForTags[scope][dtag] = rulesForTags[scope][dtag] || [];
+                rulesForTags[scope][dtag].push(v);
+            });
+        });
+    }, this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.getOptionName" id="apidoc.element.jscs-jsdoc.validate_jsdoc.prototype.getOptionName">
+        function <span class="apidocSignatureSpan">jscs-jsdoc.validate_jsdoc.prototype.</span>getOptionName
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getOptionName = function () {
+    return &#x27;jsDoc&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
